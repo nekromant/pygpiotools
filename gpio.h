@@ -3,16 +3,22 @@
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+#include <windows.h>
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(*(a)))
+
+enum pin_direction {
+    MODE_OUTPUT,
+    MODE_INPUT,
+};
 
 struct GPIOController
 {
     const char *name;
-    PyObject *(*open)(PyObject *self, PyObject *args);
-    PyObject *(*direction)(PyObject *self, PyObject *args);
-    PyObject *(*read)(PyObject *self, PyObject *args);
-    PyObject *(*write)(PyObject *self, PyObject *args);
-    PyObject *(*close)(PyObject *self, PyObject *args);
+    HANDLE (*open)(const char *driver, const char *port);
+    int (*direction)(HANDLE hndl, int pin, enum pin_direction);
+    int (*read)(HANDLE hndl, int pin);
+    int (*write)(HANDLE hndl, int pin, int value);
+    void (*close)(HANDLE hndl);
 };
 
 

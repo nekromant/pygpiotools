@@ -4,7 +4,7 @@ __version__ = "0.1.0"
 
 
 
-if not os.name == 'nt':
+if os.name == 'nt':
        #Windows is the usual mess. We'll need a native extension
        pygptools = Extension('pygpiotools',
                            sources = ['gpio-windows.c', "pl2303.c"])
