@@ -133,8 +133,9 @@ HANDLE pl2303_open(const char *driver, const char *port)
         if (ps) { // Dumb way to get rid of ":"
                 *ps = 0x0; 
         }
-	hndl = CreateFile(tmp, GENERIC_READ | GENERIC_WRITE,
-		0, NULL, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, NULL);
+	hndl = CreateFile(tmp, 0,
+		FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE, 
+                NULL, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, NULL);
         return hndl;
 };
 
@@ -167,13 +168,15 @@ int pl2303_write(HANDLE hndl, int pin, int value)
 /* read(handle, pin) */
 int pl2303_read(HANDLE hndl, int pin)
 {
+        BYTE tmp; 
+        BOOL result = 0;
         int ret = -1;
         if (pin == 0) {
-                ret = PL2303_GP0_GetValue(hndl);
+                result = PL2303_GP0_GetValue(hndl, &tmp);
         } else if (pin == 1) {
-                ret = PL2303_GP1_GetValue(hndl);
+                result = PL2303_GP1_GetValue(hndl, &tmp);
         }
-        return ret;
+        return result ? tmp : -1;
 };
 
 
