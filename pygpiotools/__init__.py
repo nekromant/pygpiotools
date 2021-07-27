@@ -12,6 +12,9 @@ __lookup = {}
 def list():
     return __driver_list
 
+def connect_handle(driver, handle):
+    raise Exception("This is an internal function for experiments. Not supported in linux/mac")
+
 #Returns a handle for the device
 def open(driver, port):
     #Lazy import here
@@ -25,6 +28,13 @@ def open(driver, port):
     if handle != None: 
         __lookup[handle] = drv
     return handle
+
+def connect_pyserial(driver, serial_object):
+    # Not a good idea to rely on internal pyserial data, but windows weirdness
+    # requires harsh sacrifices 
+    port = serial_object._port
+    print(driver, port)
+    return open(driver, port)
 
 def __handle_to_drv(handle):
     if not handle in __lookup:
