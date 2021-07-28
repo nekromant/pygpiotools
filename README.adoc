@@ -15,6 +15,19 @@ Remember those cheap usb-to-uart modules that have gpio pins? Want to control th
 linux, windows and (hopefully) mac. Old pl2303gpio doesn't get the job done? 
 This library aims to fix the problems.
 
+== Hardware support matrix
+
+.Driver support status
+[width="100%", options="header"]
+|=========================================================
+|Chip | Number of GPIOs |Driver | Windows | Linux | Mac
+
+| PL2303HXA    | 2 | pl2303 | Yes | Yes | ???
+| CP210x       | 8 | cp230x | WIP | WIP | ??? 
+
+|
+=========================================================
+
 == Installation
 === Requirements
 
