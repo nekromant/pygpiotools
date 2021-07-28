@@ -38,5 +38,5 @@ os.system(f"git push origin v{newversion}")
 if os.access('dist',os.R_OK):
     shutil.rmtree('dist')
 os.system("python3 setup.py sdist")
-os.system("twine upload dist/* --verbose")
+os.system("twine check dist/* && twine upload dist/* --verbose")
 

@@ -12,7 +12,6 @@ problems.
 
 # Hardware support matrix
 
-
 | Chip(s)   | Driver | Windows | Linux | Mac OS |
 |-----------|--------|---------|-------|--------|
 | PL2303HXA | pl2303 | Yes     | Yes   | Maybe  |
@@ -57,3 +56,5 @@ gpio code and initial implementation
 # License
 
 TBD
+
+
