@@ -1,14 +1,13 @@
 import os
+import pygpiotools
 from distutils.core import setup, Extension
-__version__ = "0.1.0"
-
-
 
 if os.name == 'nt':
        #Windows is the usual mess. We'll need a native extension
        pygptools = Extension('pygpiotools',
                            sources = ['gpio-windows.c', "pl2303.c"])
        modules = [pygptools]
+       define_macros = [('PYGPIOTOOLS_VERSION', pygpiotools.__version__)],
        install_requires = []
        packages = []
 else:
@@ -21,7 +20,7 @@ else:
 
 setup( 
        name = 'pygpiotools',
-       version = __version__,
+       version = pygpiotools.__version__,
        packages=packages,
        install_requires = install_requires,
        description = 'Python tools & API to control GPIO pins of common USB_to_UART converters',
