@@ -8,7 +8,7 @@ import usb.util
 __driver_list = ["dummy", "pl2303", "cp210x", "sysfs"]
 __drivers = {}
 __lookup = {}
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 def list():
     return __driver_list
