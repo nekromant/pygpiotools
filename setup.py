@@ -2,6 +2,9 @@ import os
 import pygpiotools
 from distutils.core import setup, Extension
 
+with open("README.adoc", "r") as fh:
+    long_description = fh.read()
+    
 if os.name == 'nt':
        #Windows is the usual mess. We'll need a native extension
        pygptools = Extension('pygpiotools',
@@ -25,4 +28,5 @@ setup(
        install_requires = install_requires,
        description = 'Python tools & API to control GPIO pins of common USB_to_UART converters',
        ext_modules = modules,
+       long_description = long_description
        )
