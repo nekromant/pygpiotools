@@ -2,9 +2,10 @@ import os
 import pygpiotools
 from distutils.core import setup, Extension
 
-with open("README.adoc", "r") as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
-    
+
+
 if os.name == 'nt':
        #Windows is the usual mess. We'll need a native extension
        pygptools = Extension('pygpiotools',

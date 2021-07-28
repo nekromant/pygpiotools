@@ -26,6 +26,8 @@ with fileinput.FileInput("pygpiotools/__init__.py", inplace=True, backup='.bak')
     for line in file:
         print(line.replace(oldversion, newversion), end='')
 
+os.system(f"pip3 install .")
+
 os.system("git add README.md")
 os.system("git add pygpiotools/__init__.py")
 os.system(f'git commit -s -m \"v{newversion} release\"')
@@ -36,4 +38,5 @@ os.system(f"git push origin v{newversion}")
 if os.access('dist',os.R_OK):
     shutil.rmtree('dist')
 os.system("python3 setup.py sdist")
-os.system("twine upload dist/*")
+os.system("twine upload dist/* --verbose")
+
