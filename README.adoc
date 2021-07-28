@@ -1,11 +1,8 @@
-:toc:
-:toc-placement!:
 
 Python tools to control gpio pins on pl2303, cp210x and (maybe) others.
 
 image::https://ci.appveyor.com/api/projects/status/github/nekromant/pygpiotools[]
 
-toc::[]
 
 = PyGPIOTools 
 
