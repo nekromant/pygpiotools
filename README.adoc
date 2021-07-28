@@ -28,6 +28,7 @@ This library aims to fix the problems.
 |=========================================================
 
 == Installation
+
 === Requirements
 
 Any recent python 3.x. 3.7 and above should be good. Please report you successes so that I can add the information here.
