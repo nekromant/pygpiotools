@@ -7,7 +7,7 @@ print(f"Drivers loaded: {pygpiotools.list()}")
 #handle = pygpiotools.open("pl2303", "com5")
 #ser = serial.Serial('com5:', 1000000)
 ser = serial.Serial('/dev/ttyUSB0', 1000000)
-#print(ser, ser._port)
+print(ser, ser._port)
 
 handle = pygpiotools.connect_pyserial("pl2303", ser)
 #print(pygpiotools.__registry)
