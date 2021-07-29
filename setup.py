@@ -33,5 +33,10 @@ setup(
        description = 'Python tools & API to control GPIO pins of common USB_to_UART converters',
        ext_modules = modules,
        long_description_content_type='text/markdown',
-       long_description = long_description
+       long_description = long_description,
+       url = "http://github.com/RC-MODULE/rumboot-tools",
+       author = "Andrew Andrianov",
+       author_email = "andrew@ncrmnt.org",
+       license = "GPL",
+       platforms = "any",
        )
