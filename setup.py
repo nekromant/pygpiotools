@@ -22,6 +22,8 @@ else:
               ]
        packages = ["pygpiotools"]
 
+packages.append("parse")
+
 setup( 
        name = 'pygpiotools',
        version = pygpiotools.__version__,
