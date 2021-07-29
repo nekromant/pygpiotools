@@ -3,12 +3,12 @@ import os
 from parse import parse
 import usb.core
 import usb.util
+from ._version import __version__
 
 
 __driver_list = ["dummy", "pl2303", "cp210x", "sysfs"]
 __drivers = {}
 __lookup = {}
-__version__ = "0.1.30"
 
 def list():
     return __driver_list

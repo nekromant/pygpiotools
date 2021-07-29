@@ -1,17 +1,18 @@
 import os
-import pygpiotools
 from setuptools import setup
 from distutils.core import Extension
 
 fh = open("README.md", "r")
 long_description = fh.read()
 
+exec(open('pygpiotools/_version.py').read())
+
 if os.name == 'nt':
        #Windows is the usual mess. We'll need a native extension
        pygptools = Extension('pygpiotools',
                            sources = ['gpio-windows.c', "pl2303.c"])
        modules = [pygptools]
-       define_macros = [('PYGPIOTOOLS_VERSION', pygpiotools.__version__)],
+       define_macros = [('PYGPIOTOOLS_VERSION', __version__)],
        install_requires = []
        packages = []
 else:
@@ -19,15 +20,13 @@ else:
        modules = []
        install_requires = [
               "pyusb>=1.0.0",
+              "parse"
               ]
        packages = ["pygpiotools"]
 
-install_requires.append("parse")
-print(install_requires)
-
 setup( 
        name = 'pygpiotools',
-       version = pygpiotools.__version__,
+       version = __version__,
        packages=packages,
        include_package_data=True,
        install_requires = install_requires,
