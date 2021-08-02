@@ -1,2 +1,2 @@
-recursive-include README.md
-recursive-include *.c
+include README.md
+include *.c *.h
