@@ -1,7 +1,7 @@
 Python tools to control gpio pins on pl2303, cp210x and (maybe) others.
 
 
-![](https://ci.appveyor.com/api/projects/status/github/nekromant/pygpiotools?svg=true)
+[![Build status](https://ci.appveyor.com/api/projects/status/3qvj0prnqc2ebnje/branch/master?svg=true)](https://ci.appveyor.com/project/nekromant/pygpiotools/branch/master)
 
 # Introduction
 
