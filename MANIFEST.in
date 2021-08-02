@@ -1,2 +1,2 @@
-README.md
-*.c
+recursive-include README.md
+recursive-include *.c
