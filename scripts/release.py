@@ -22,7 +22,7 @@ print(f"Preparing for {newversion} release")
 #os.system(f"python3 scripts/update_readme.py > README.new")
 #os.system(f"mv README.new README.md")
 
-with fileinput.FileInput("pygpiotools/__init__.py", inplace=True, backup='.bak') as file:
+with fileinput.FileInput("pygpiotools/_version.py", inplace=True, backup='.bak') as file:
     for line in file:
         print(line.replace(oldversion, newversion), end='')
 

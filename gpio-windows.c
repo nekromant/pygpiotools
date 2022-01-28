@@ -157,7 +157,7 @@ static PyObject *pygpio_write(PyObject *self, PyObject *args)
 
 static PyMethodDef PyGPIOMethods[] = {
     {"list",                 pygpio_list,                METH_VARARGS, "Get a list of supported controllers"},
-    {"open",                 pygpio_open,                METH_VARARGS, "Open a controller ('comX:' on window, /dev/ttyXXX on linux)"},
+    {"create",               pygpio_open,                METH_VARARGS, "Create/Open a controller ('comX:' on window, /dev/ttyXXX on linux)"},
     {"_connect_handle",      pygpio_connect_handle,      METH_VARARGS, "Connect and use a 'raw' HANDLE (only for testing)"},
     {"connect_pyserial",     pygpio_connect_pyserial,    METH_VARARGS, "Obtain a handle from an opened pyserial port"},
     {"direction",            pygpio_direction,           METH_VARARGS, "Set direction (INPUT, OUTPUT)"},

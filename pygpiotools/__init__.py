@@ -17,7 +17,7 @@ def connect_handle(driver, handle):
     raise Exception("This is an internal function for experiments. Not supported in linux/mac")
 
 #Returns a handle for the device
-def open(driver, port):
+def create(driver, port):
     #Lazy import here
 
     if not driver in __drivers and driver in __driver_list:
@@ -25,7 +25,7 @@ def open(driver, port):
         __drivers[driver] = drv
     else:
         drv = __drivers[driver]
-    handle = drv.open(driver, port)
+    handle = drv.create(driver, port)
     if handle != None: 
         __lookup[handle] = drv
     return handle
@@ -34,8 +34,7 @@ def connect_pyserial(driver, serial_object):
     # Not a good idea to rely on internal pyserial data, but windows weirdness
     # requires harsh sacrifices 
     port = serial_object._port
-    print(driver, port)
-    return open(driver, port)
+    return create(driver, port)
 
 def __handle_to_drv(handle):
     if not handle in __lookup:
@@ -71,6 +70,10 @@ class _usb_find_class(object):
 
 def tty_to_usbdev(tty, vid, pid):
     tty = os.path.realpath(tty)
+    tmp = open(tty)
+    tty = os.ttyname(tmp.fileno())
+    tmp.close()
+
     parsed_tty = parse("/dev/tty{}{:d}", tty, case_sensitive=True)
     if not parsed_tty:
         raise Exception("cannot parse port string: " + tty)

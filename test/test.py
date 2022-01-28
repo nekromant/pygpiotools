@@ -2,7 +2,8 @@ import pygpiotools
 import time
 import serial
 
-print(f"Drivers loaded: {pygpiotools.list()}")
+print(pygpiotools.__version__)
+#print(f"Drivers loaded: {pygpiotools.list()}")
 #handle = pygpiotools.open("pl2303", "/dev/ttyUSB0")
 #handle = pygpiotools.open("pl2303", "com5")
 #ser = serial.Serial('com5:', 1000000)
@@ -16,7 +17,6 @@ handle = pygpiotools.connect_pyserial("pl2303", ser)
 #print(handle)
 
 while True:
-#    print(ser.read(512).decode())
     pygpiotools.direction(handle, 0, "OUTPUT")
     pygpiotools.direction(handle, 1, "OUTPUT")
     
